@@ -10,7 +10,7 @@ namespace DevMath
     {
         public static float Lerp(float a, float b, float t)
         {
-            throw new NotImplementedException();
+            return a + (b - a) * t;
         }
 
         public static float DistanceTraveled(float startVelocity, float acceleration, float time)
@@ -25,12 +25,12 @@ namespace DevMath
 
         public static float RadToDeg(float angle)
         {
-            throw new NotImplementedException();
+            return angle / System.Math.PI * 180;
         }
 
         public static float DegToRad(float angle)
         {
-            throw new NotImplementedException();
+            return angle / 180 * System.Math.PI;
         }
     }
 }

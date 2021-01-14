@@ -22,5 +22,12 @@ namespace DevMath
         {
             get; set;
         }
+
+        public float DirectionalCoefficient
+        {
+            //delta y gedeeld door delta x
+            get { (Direction.y - Position.y) \ (Direction.x - Position.x) }
+            private set;
+        }
     }
 }
