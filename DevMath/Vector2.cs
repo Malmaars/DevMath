@@ -51,22 +51,27 @@ namespace DevMath
             return new Vector2(newX, newY);
         }
 
+
         public static float Angle(Vector2 lhs, Vector2 rhs)
         {
-            float a = lhs.Magnitude;
+            /*float a = lhs.Magnitude;
             float b = rhs.Magnitude;
-            float c = (float)System.Math.Sqrt(a * a + b * b);
+            float c = lhs.x * rhs.x + lhs.y * rhs.y;
 
-            float angleDeg = (float)System.Math.Acos(((a * a) + (b * b) - (c * c)) / (2 * a * b));
-            return DevMath.DegToRad(angleDeg);
+            float angle = (float)System.Math.Cos(c / (a * b));
+            return angle; */
+
+            //Ok ik ben er klaar mee. De error waar ik nu al de hele dag mee bezig was bleek
+            //dit te zijn. ik snap nog steeds niet wat er fout was aan de vorige formule >:(
+
+            Vector2 v = lhs - rhs;
+            return -(float)Math.Atan2(v.x, v.y) - (0.5f * (float)Math.PI);
         }
 
         public static Vector2 DirectionFromAngle(float angle)
         {
-            angle = DevMath.RadToDeg(angle);
-            float otherangle = 90 - angle;
-            float Vy = (float)System.Math.Sin(angle);
-            float Vx = (float)System.Math.Sin(otherangle);
+            float Vy = (float)System.Math.Sin(DevMath.DegToRad(angle));
+            float Vx = (float)System.Math.Sin(DevMath.DegToRad(angle));
 
             return new Vector2(Vx, Vy);
         }

@@ -16,12 +16,8 @@ namespace DevMath
         public static float DistanceTraveled(float startVelocity, float acceleration, float time)
         {
             float Distance = 0;
-            float velocity = startVelocity;
-            for(int i = 0; i < time; i++)
-            {
-                Distance += velocity;
-                velocity += acceleration;
-            }
+            float velocity = startVelocity * time;
+            Distance = + 0.5f * acceleration * (time * time);
             return Distance;
         }
 

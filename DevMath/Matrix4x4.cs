@@ -137,7 +137,7 @@ namespace DevMath
         public static Matrix4x4 Rotate(Vector3 rotation)
         {
             //Er zijn 2 manieren om deze te berekenen
-            throw new NotImplementedException();
+            return RotateY(rotation.y) * RotateX(rotation.x) * RotateZ(rotation.z);
         }
 
         public static Matrix4x4 RotateX(float rotation)
