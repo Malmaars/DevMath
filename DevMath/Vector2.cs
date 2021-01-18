@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace DevMath
         public float Magnitude
         {
             //stelling van pythagoras.
-            get { return System.Math.Sqrt(x * x + y * y); } 
+            get { return (float)System.Math.Sqrt(x * x + y * y); } 
         }
 
         public Vector2 Normalized
@@ -54,16 +55,18 @@ namespace DevMath
         {
             float a = lhs.Magnitude;
             float b = rhs.Magnitude;
-            float c = System.Math.Sqrt(a * a + b * b);
+            float c = (float)System.Math.Sqrt(a * a + b * b);
 
-            return System.Math.Acos(((a * a) + (b * b) - (c * c)) / (2 * a * b));
+            float angleDeg = (float)System.Math.Acos(((a * a) + (b * b) - (c * c)) / (2 * a * b));
+            return DevMath.DegToRad(angleDeg);
         }
 
         public static Vector2 DirectionFromAngle(float angle)
         {
+            angle = DevMath.RadToDeg(angle);
             float otherangle = 90 - angle;
-            float Vy = System.Math.Sin(angle);
-            float Vx = System.Math.Sin(otherangle);
+            float Vy = (float)System.Math.Sin(angle);
+            float Vx = (float)System.Math.Sin(otherangle);
 
             return new Vector2(Vx, Vy);
         }
@@ -90,7 +93,7 @@ namespace DevMath
 
         public static Vector2 operator /(Vector2 lhs, float scalar)
         {
-            return new Vector2(lhs.x / scalar), lhs.y / scalar)
+            return new Vector2((lhs.x / scalar), (lhs.y / scalar));
         }
     }
 }

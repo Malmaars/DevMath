@@ -15,22 +15,39 @@ namespace DevMath
 
         public static float DistanceTraveled(float startVelocity, float acceleration, float time)
         {
-            throw new NotImplementedException();
+            float Distance = 0;
+            float velocity = startVelocity;
+            for(int i = 0; i < time; i++)
+            {
+                Distance += velocity;
+                velocity += acceleration;
+            }
+            return Distance;
         }
 
         public static float Clamp(float value, float min, float max)
         {
-            throw new NotImplementedException();
+            if(value < min)
+            {
+                return min;
+            }
+
+            if(value > max)
+            {
+                return max;
+            }
+
+            return value;
         }
 
         public static float RadToDeg(float angle)
         {
-            return angle / System.Math.PI * 180;
+            return (float)(angle * (180 / System.Math.PI));
         }
 
         public static float DegToRad(float angle)
         {
-            return angle / 180 * System.Math.PI;
+            return (float)(angle * (System.Math.PI / 180));
         }
     }
 }

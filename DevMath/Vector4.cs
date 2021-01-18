@@ -16,12 +16,12 @@ namespace DevMath
         public float Magnitude
         {
             get
-            { return System.Math.Sqrt(x * x + y * y + z * z + w * w); }
+            { return (float)System.Math.Sqrt(x * x + y * y + z * z + w * w); }
         }
 
         public Vector4 Normalized
         {
-            get { return new Vector3(x / Magnitude, y / Magnitude, z / Magnitude, w / Magnitude); }
+            get { return new Vector4(x / Magnitude, y / Magnitude, z / Magnitude, w / Magnitude); }
         }
 
         public Vector4(float x, float y, float z, float w)
